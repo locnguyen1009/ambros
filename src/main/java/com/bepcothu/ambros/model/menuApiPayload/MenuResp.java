@@ -1,18 +1,16 @@
 package com.bepcothu.ambros.model.menuApiPayload;
 
+import com.bepcothu.ambros.model.menu.ItemType;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuItemResp {
-  private Long itemId;
-  private String name;
-  private double price;
-  private String description;
-  private Long typeId;
+@Getter
+@Setter
+public class MenuResp {
+  List<ItemType> menu;
 }

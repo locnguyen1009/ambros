@@ -3,15 +3,17 @@ package com.bepcothu.ambros.model.menuApiPayload;
 import com.bepcothu.ambros.model.menu.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
-public class ItemTypeReq {
+@NoArgsConstructor
+@AllArgsConstructor
+public class ItemTypeResp {
+  private Long typeId;
   private String category;
-  private List<MenuItem> menuItemList;
-
+  private List<MenuItem> menuItem = new ArrayList<>();
 }

@@ -1,4 +1,4 @@
-package com.bepcothu.ambros.model.menuApiPayload;
+package com.bepcothu.ambros.model.orderApiPayload;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,10 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuItemResp {
-  private Long itemId;
-  private String name;
+public class OrderItemResp {
+  private String itemName;
+  private int quantity;
   private double price;
-  private String description;
-  private Long typeId;
 }

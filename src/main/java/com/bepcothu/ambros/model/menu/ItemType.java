@@ -1,5 +1,7 @@
 package com.bepcothu.ambros.model.menu;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,12 +27,9 @@ import lombok.Setter;
 public class ItemType {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "type_id")
-  private Long id;
+  private Long typeId;
   private String category;
 
-  @OneToMany(cascade = CascadeType.ALL)
-  @JoinColumn(name = "fk_type_id", referencedColumnName = "type_id")
-  private List<MenuItem> menuItem;
-
+  @OneToMany(mappedBy = "itemType", cascade = CascadeType.ALL)
+  private List<MenuItem> menuItem = new ArrayList<>();
 }

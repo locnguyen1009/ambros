@@ -11,10 +11,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MenuItemReq {
-  private Long id;
   private String name;
   private double price;
   private String description;
-
-
+  private ItemType itemType;
 }

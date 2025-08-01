@@ -1,39 +1,46 @@
-package com.bepcothu.ambros.model.menu;
+package com.bepcothu.ambros.model.order;
 
-
+import com.bepcothu.ambros.model.menu.MenuItem;
+import com.bepcothu.ambros.model.order.Order;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import java.util.List;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 @Getter
 @Setter
-public class MenuItem {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "order_item")
+public class OrderItem {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long itemId;
-  private String name;
+  private Long id;
+  private String itemName;
+  private int quantity;
   private double price;
-  private String description;
 
-  @ManyToOne()
-  @JoinColumn(name = "typeId")
+  @ManyToOne
+  @JoinColumn(name = "orderId")
   @JsonIgnore
-  private ItemType itemType;
+  private Order order;
+
+  @ManyToOne
+  @JoinColumn(name = "itemId")
+  @JsonIgnore
+  private MenuItem menuItem;
+
+
+
 }
